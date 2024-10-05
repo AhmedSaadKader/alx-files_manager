@@ -6,10 +6,11 @@ class RedisClient {
     this.client.on('error', (error) => {
       console.error(`Redis client error: ${error}`);
     });
+    this.client.connect();
   }
 
   isAlive() {
-    return this.client.connected;
+    return this.client.isOpen;
   }
 
   async get(key) {

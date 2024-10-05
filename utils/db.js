@@ -5,6 +5,8 @@ dotenv.config();
 
 class DBClient {
   constructor() {
+    const host = process.env.DB_HOST || 'localhost';
+    const port = process.env.DB_PORT || 27017;
     const uri = process.env.DB_URI || `mongodb://${process.env.DB_HOST || 'localhost'}:${process.env.DB_PORT || '27017'}`;
     const database = process.env.DB_DATABASE || 'files_manager';
 
